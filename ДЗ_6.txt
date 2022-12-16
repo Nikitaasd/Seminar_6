@@ -1,0 +1,77 @@
+ЗАДАЧА 41
+
+Console.WriteLine("Введите числа");
+int[] namb = CountNumb(Console.ReadLine());
+int col = BolsheNol(namb);
+Console.Clear();
+Console.Write("[");
+Console.Write(String.Join(" ", namb));
+Console.Write($"] -> {col}");
+
+
+
+int[] CountNumb(string stroka)
+{
+    int count = 1;
+    for(int i = 0; i < stroka.Length; i++)
+    {
+        if(stroka[i] == ' ')
+        {
+            count++;
+        }
+    }
+    
+    int[] array = new int[count];
+    int index = 0;
+    for(int i = 0; i < stroka.Length; i++)
+    {
+        string schetchik = "";
+        while(stroka[i] != ' ')
+        {
+            if(i != stroka.Length -1)
+            {
+                schetchik += stroka[i];
+            }
+            else
+            {
+                schetchik += stroka[i];
+                break;  
+            }
+            
+        i++;
+        }
+        array[index] = Convert.ToInt32(schetchik);
+        index++;
+    }
+    return array;
+}
+
+
+int BolsheNol (int[] array)
+{
+    int count = 0;
+    for(int i = 0; i < array.Length; i++)
+    {
+        if(array[i] >= 0) count++;
+    }
+return count;
+}
+
+________________________________________________________________________________________________
+________________________________________________________________________________________________
+
+ЗАДАЧА 43
+
+Console.WriteLine("введите значение b1");
+double b1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите число k1");
+double k1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите значение b2");
+double b2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите число k2");
+double k2 = Convert.ToInt32(Console.ReadLine());
+
+double x = (-b2 + b1)/(-k1 + k2);
+double y = k2 * x + b2;
+
+Console.WriteLine($"две прямые пересекутся в точке с координатами X: {x}, Y: {y}");
